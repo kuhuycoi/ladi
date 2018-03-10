@@ -1,0 +1,92 @@
+/* SETTINGS */
+*{font-size: 12px;}
+.theme-settings {
+    position: fixed;
+    width: 250px;
+    max-width: 100%;
+    right: -250px;
+    top: 90px;
+    -webkit-transition: all 400ms ease;
+    transition: all 400ms ease;
+    z-index: 3;
+    background-color: #fff;
+    -webkit-box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    color: #979797;
+    max-height: calc(100% - 70px);
+}
+
+.theme-settings.active {
+    right: 0px;
+}
+
+.theme-settings .ts-button {
+    position: absolute;
+    left: -36px;
+    height: 36px;
+    width: 36px;
+    top: 0;
+    background: #fff;
+    border-radius: 5px 0px 0px 5px;
+    font-size: 19px;
+    color: #555;
+    line-height: 31px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.theme-settings .ts-heading,
+.theme-settings .option-list {
+    border-bottom: 1px solid #ddd;
+}
+
+.theme-settings .ts-body {
+    padding: 0 10px 10px
+}
+
+.theme-settings .ts-heading,
+.theme-settings .ts-title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 10px;
+}
+
+.theme-settings .ts-title {
+    color: #009FE3;
+    display: block;
+    position: relative;
+}
+
+.theme-settings .ts-title .fa {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -7px
+}
+
+.theme-settings .ts-body {
+    display: none
+}
+
+.theme-settings .ts-body .tbl {
+    width: 100%;
+}
+
+.theme-settings .ts-body .option .tbl-cell {
+    vertical-align: middle;
+    padding-bottom: 10px;
+}
+
+.theme-settings .ts-body .tbl .option:last-child .tbl-cell {
+    padding-bottom: 0
+}
+
+.theme-settings .ts-body .option label.tbl-cell {
+    padding-right: 5px;
+    font-weight: normal;
+    color: #a8aeb7;
+    width: 65px;
+}
+
+/* END SETTIGS */

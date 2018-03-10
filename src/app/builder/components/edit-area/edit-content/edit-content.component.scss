@@ -1,0 +1,43 @@
+:host {
+    display: block;
+}
+
+#edit-content {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #000;
+    background-color: #fff;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+app-section {
+    display: block;
+    outline: #28ABE3 dashed 1px !important;
+    position: relative;
+}
+
+#edit-content app-section+app-section {
+    border-top: none;
+}
+
+#diver-line-x {
+    border-bottom: 1px dashed;
+    width: 100%;
+    left: 0;
+}
+
+#diver-line-y {
+    border-left: 1px dashed #00C8F8;
+    height: 100%;
+    top: 0;
+}
+
+#diver-line-x,
+#diver-line-y {
+    position: absolute;
+    z-index: 999999999;
+    display: none;
+}

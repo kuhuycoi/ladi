@@ -1,0 +1,37 @@
+:host {
+    display: block;
+    padding: 10px 0;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .08), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .08), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    border-top: 1px solid #dde4ea;
+    background-color: #fff;
+    z-index: 9999;
+}
+
+ul {
+    margin-bottom: 0
+}
+
+ul>li{padding: 0 10px}
+ul>li:last-child{padding-right: 0}
+ul>li:first-child{padding-left: 0}
+
+ul>li>a {
+    display: block;
+    text-align: center;
+    min-width: 50px;
+    color: #7f919a;
+    font-size: 12px;
+    transition: color ease-in-out .3s
+}
+
+ul>li>a:hover {
+    color: #333;
+}
+
+ul>li>a .mat-icon {
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    font-size: 23px;
+}

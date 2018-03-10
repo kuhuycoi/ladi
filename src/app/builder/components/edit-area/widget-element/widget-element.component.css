@@ -1,0 +1,269 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: 0 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-size: cover;
+    background-origin: content-box;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block
+}
+
+ol,
+ul {
+    list-style: none
+}
+
+blockquote,
+q {
+    quotes: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none
+}
+
+:host {
+    display: flex !important;
+    width: 100%;
+    cursor: all-scroll;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: absolute;
+    z-index: 99;
+}
+
+:host.ui-draggable {
+    z-index: 100;
+    background-color: rgba(0, 0, 0, .3);
+    outline: 1px dashed #000 !important;
+}
+
+.widget-element {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.widget-content {
+    cursor: all-scroll;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.attach-edit:host .widget-content {
+    cursor: text;
+}
+
+
+/* // h1.widget-content,
+// h2.widget-content,
+// h3.widget-content,
+// h4.widget-content,
+// h5.widget-content,
+// h6.widget-content,
+// p.widget-content,
+// a.widget-content {
+//   white-space: pre-wrap;
+// } */
+
+.widget-content .hline {
+    width: 100%;
+    height: 1px;
+}
+
+.widget-content .vline {
+    height: 100%;
+    width: 1px;
+    margin: 0 auto;
+}
+
+ul.widget-content {
+    white-space: normal
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 42px;
+}
+
+h2 {
+    font-size: 30px;
+    line-height: 36px;
+}
+
+h3 {
+    font-size: 24px;
+    line-height: 30px;
+}
+
+h4 {
+    font-size: 21px;
+    line-height: 27px;
+}
+
+h5 {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+h6 {
+    font-size: 16px;
+    line-height: 22px;
+}
+
+
+/* .resizable-element,
+.resizable-popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  margin: 0;
+  z-index: 999;
+  display: block;
+  border: 1px dashed #000;
+  cursor: all-scroll;
+} */
+
+.resizable-element *,
+.resizable-popup * {
+    user-select: none;
+}
+
+.resizable-element .ui-move-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 89;
+}
+
+.ui-resizable-handle,
+.ui-resizable-handle {
+    width: 7px;
+    height: 7px;
+    background: #fff;
+    border: 1px solid #000;
+    z-index: 90;
+    display: block;
+}
+
+.ui-resizable-handle.n-resize,
+.ui-resizable-handle.n-resize {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: -3.5px;
+    position: absolute;
+    cursor: n-resize;
+}
+
+.ui-resizable-handle.s-resize,
+.ui-resizable-handle.s-resize {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: -3.5px;
+    position: absolute;
+    cursor: s-resize;
+}
+
+.ui-resizable-handle.nw-resize,
+.ui-resizable-handle.nw-resize {
+    left: -3.5px;
+    top: -3.5px;
+    position: absolute;
+    cursor: nw-resize;
+}
+
+.ui-resizable-handle.sw-resize,
+.ui-resizable-handle.sw-resize {
+    left: -3.5px;
+    bottom: -3.5px;
+    position: absolute;
+    cursor: sw-resize;
+}
+
+.ui-resizable-handle.se-resize,
+.ui-resizable-handle.se-resize {
+    right: -3.5px;
+    bottom: -3.5px;
+    position: absolute;
+    cursor: se-resize;
+}
+
+.ui-resizable-handle.ne-resize,
+.ui-resizable-handle.ne-resize {
+    right: -3.5px;
+    top: -3.5px;
+    position: absolute;
+    cursor: ne-resize;
+}
+
+.ui-resizable-handle.e-resize,
+.ui-resizable-handle.e-resize {
+    top: calc(50% - 3.5px);
+    right: -3.5px;
+    position: absolute;
+    cursor: e-resize;
+}
+
+.ui-resizable-handle.w-resize,
+.ui-resizable-handle.w-resize {
+    top: calc(50% - 3.5px);
+    left: -3.5px;
+    position: absolute;
+    cursor: w-resize;
+}

@@ -1,0 +1,44 @@
+<ng-template #managerImage let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title">Quản lý thư viện</h5>
+    <button type="button" class="close" (click)="d()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="input-group mb-3">
+      <input type="search" class="form-control" placeholder="Tìm kiếm ảnh" />
+      <div class="input-group-prepend">
+        <button type="submit" class="btn btn-primary">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+    <form action="/file-upload" id="upload-img" (drag)='onDrag($event)' (dragover)='dragOver($event)' (dragstart)='dragStart($event)'
+      (dragenter)='dragEnter($event)' (dragend)='dragEnd($event)' (dragleave)='dragLeave($event)' (drop)='onDrop($event)'>
+      <div class="fallback" [ngClass]="{'isDragOver': isDragOver }">
+        <input name="file" type="file" multiple style="display: none" />
+        <h2>Kéo thả file để upload</h2>
+        <div class="row uploaded-list">
+          <div class="col-lg-2 col-md-3 col-sm-4 col-6" *ngFor="let image of images">
+            <label class="img">
+              <input type="radio" name="selectedImg" />
+              <div>
+                <div class="img-cover">
+                  <img [src]="image.url" [alt]="image.name" />
+                </div>
+                <h3>{{image.fileName}}</h3>
+                <button class="btn btn-sm btn-danger">
+                  <i class="fa fa-trash-o"></i>
+                </button>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c()">Đóng</button>
+  </div>
+</ng-template>

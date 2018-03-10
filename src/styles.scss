@@ -1,0 +1,372 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,500i,700,700i&amp;subset=vietnamese");
+@import url("assets/css/ionicons.min.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/theming';
+@include mat-core();
+$primary: mat-palette($mat-blue,
+600,
+700,
+800);
+$accent: mat-palette($mat-orange,
+600,
+700,
+800);
+$theme: mat-light-theme($primary,
+$accent);
+@include angular-material-theme($theme);
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #1d1d1d;
+}
+
+.mat-button {
+    color: rgba(0, 0, 0, .5)
+}
+
+.mat-icon.rotate90 {
+    transform: rotate(90deg);
+    margin-top: -2px;
+}
+
+a,
+button {
+    outline: none !important;
+    text-decoration: none !important
+}
+
+.mat-tooltip {
+    white-space: nowrap;
+}
+
+.navbar-light .navbar-nav .nav-link.mat-primary {
+    color: #fff;
+}
+
+.img-cover {
+    display: block
+}
+
+.img-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -o-object-fit: cover;
+}
+
+.img-list .img .icheckbox_minimal-grey {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    margin: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: ease-in-out .3s;
+    background-color: #fff
+}
+
+.img-list .img:hover .icheckbox_minimal-grey,
+.img-list .img .icheckbox_minimal-grey.checked {
+    visibility: visible;
+    opacity: 1;
+}
+
+.img-list .img:hover {
+    box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+}
+
+.img-cover {
+    display: block;
+}
+
+.img-cover img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+ul[app-type="ul"] {
+    counter-reset: linum;
+    list-style: none;
+    padding: 0;
+}
+
+ul[app-type="ul"]>li {
+    counter-increment: linum;
+    word-wrap: break-word;
+    margin-bottom: 15px;
+}
+
+ul[app-type="ul"]>li::before {
+    float: left;
+    clear: left;
+    contain: content;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    padding: 0!important;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    margin-right: 0px;
+}
+
+ul[app-type="ul"][data-order="decimal"]>li::before {
+    content: counter(linum, decimal);
+}
+
+ul[app-type="ul"][data-order="upper-alpha"]>li::before {
+    content: counter(linum, upper-alpha);
+}
+
+ul[app-type="ul"][data-order="lower-alpha"]>li::before {
+    content: counter(linum, lower-alpha);
+}
+
+ul[app-type="ul"][data-order="upper-roman"]>li::before {
+    content: counter(linum, upper-roman);
+}
+
+ul[app-type="ul"][data-order="lower-roman"]>li::before {
+    content: counter(linum, lower-roman);
+}
+
+ul[app-type="ul"][data-order="square"]>li::before {
+    content: counter(linum, square);
+}
+
+ul[app-type="ul"][data-order="disc"]>li::before {
+    content: counter(linum, disc);
+}
+
+#header{
+  z-index: 9999;
+}
+
+#resizable-section .ui-resizable-s,
+#resizable-section:before {
+    bottom: -15px;
+    left: calc(50% + 345px);
+    right: 0;
+    margin: 0 auto;
+    width: 30px
+}
+
+#resizable-section {
+    height: 100px;
+    width: 90%;
+    margin-left: 60px;
+    margin-right: 20px;
+    position: relative;
+    display: none;
+    z-index: 70
+}
+
+#resizable-section .ui-resizable-s {
+    height: 30px;
+    cursor: s-resize;
+    position: absolute
+}
+
+#resizable-section .edit-section {
+    box-shadow: 0 1px 3px rgba(13, 26, 44, .16), 0 5px 9px rgba(13, 26, 44, .2);
+    border-radius: 5px;
+    position: absolute;
+    right: 30px;
+    top: 0;
+    text-align: center;
+    background: #fff;
+    overflow: hidden;
+}
+
+#resizable-section .edit-section ul {
+    padding: 0;
+    margin: 0
+}
+
+#resizable-section .edit-section ul li {
+    list-style: none;
+    border-bottom: 1px solid #F0F3F5;
+    cursor: pointer;
+    padding-bottom: 0;
+    text-align: center;
+    vertical-align: middle
+}
+
+#resizable-section .edit-section ul li .svg-icons,
+#resizable-section .edit-section ul li i {
+    color: grey;
+    fill: grey;
+    padding: 6px;
+    font-size: 20px;
+    display: inline-block
+}
+
+#resizable-section .edit-section ul li:last-child {
+    border: 0
+}
+
+#resizable-section .edit-section ul li:hover {
+    background: #F0F3F5
+}
+
+#resizable-section.ui-widget-content {
+    border: 0!important
+}
+
+#resizable-section .ui-resizable-s {
+    height: 30px;
+    cursor: s-resize;
+    position: absolute;
+    bottom: -15px;
+    right: 50px;
+    margin: 0 auto;
+    width: 30px;
+    background: url(/assets/img/arrow-resize.png) !important
+}
+
+.ui-resizable-handle {
+    width: 7px;
+    height: 7px;
+    background: #fff;
+    border: 1px solid #000;
+    z-index: 90;
+    display: block;
+    position: absolute;
+}
+
+.ui-resizable-handle.ui-resizable-n {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: -3.5px;
+    position: absolute;
+    cursor: n-resize;
+}
+
+.ui-resizable-handle.ui-resizable-s {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: -3.5px;
+    position: absolute;
+    cursor: s-resize;
+}
+
+.ui-resizable-handle.ui-resizable-nw {
+    left: -3.5px;
+    top: -3.5px;
+    position: absolute;
+    cursor: nw-resize;
+}
+
+.ui-resizable-handle.ui-resizable-sw {
+    left: -3.5px;
+    bottom: -3.5px;
+    position: absolute;
+    cursor: sw-resize;
+}
+
+.ui-resizable-handle.ui-resizable-se {
+    right: -3.5px;
+    bottom: -3.5px;
+    position: absolute;
+    cursor: se-resize;
+}
+
+.ui-resizable-handle.ui-resizable-ne {
+    right: -3.5px;
+    top: -3.5px;
+    position: absolute;
+    cursor: ne-resize;
+}
+
+.ui-resizable-handle.ui-resizable-e {
+    top: calc(50% - 3.5px);
+    right: -3.5px;
+    position: absolute;
+    cursor: e-resize;
+}
+
+.ui-resizable-handle.ui-resizable-w {
+    top: calc(50% - 3.5px);
+    left: -3.5px;
+    position: absolute;
+    cursor: w-resize;
+}
+
+.widget-container {
+    height: 100%;
+    width: 960px;
+    margin: 0 auto;
+}
+
+#v-ruler {
+  pointer-events: auto;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  padding-left: 23px;
+  width: 100%;
+  left: 0;;
+  background-color: rgba(255, 255, 255, .7);
+  background-color: rgba(255, 255, 255, 0.7);
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+#v-ruler .numbers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: url(/assets/img/ruler_horizontal.png) repeat-x left -22px top;
+  height: 22px;
+  text-indent: -22px;
+}
+
+#v-ruler .numbers .number {
+  display: inline-block;
+  width: 100px;
+  text-align: left;
+  padding: 5px 0 0 5px;
+  font-size: 10px;
+  color: #666
+}
+
+#v-ruler .numbers .number:last-child {
+  width: auto;
+}
+#h-ruler {
+  height: 100%;
+  pointer-events: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  padding-top: 23px;
+  background-color: rgba(255, 255, 255, .7);
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+#h-ruler .numbers {
+  background: url(/assets/img/ruler_vertical.png) repeat-y left top;
+  width: 22px;
+  height: 100%;
+}
+
+#h-ruler .numbers .number {
+  display: block;
+  height: 100px;
+  width: 10px;
+  text-align: right;
+  padding: 1px 0 0 13px;
+  font-size: 10px;
+  color: #666;
+  word-break: break-all;
+  line-height: 1.4;
+}

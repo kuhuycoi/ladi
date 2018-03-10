@@ -1,0 +1,7 @@
+<div id="edit-content">
+  <app-widget-vruler id="v-ruler"></app-widget-vruler>
+  <app-widget-hruler id="h-ruler"></app-widget-hruler>
+  <app-section *ngFor="let section of sectionActionService.sections" [ngStyle]="section.rect | convertRect" [section]="section" [attr.data-id]="section.id"></app-section>
+  <div id="diver-line-x"></div>
+  <div id="diver-line-y"></div>
+</div>

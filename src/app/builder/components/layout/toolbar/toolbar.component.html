@@ -1,0 +1,146 @@
+<div class="container-fluid">
+  <div class="d-flex align-items-center">
+    <ul class="d-flex list-unstyled flex-row mr-auto">
+      <li>
+        <a href="javascript:void(0)" appOpenModal="templateModal">
+          <mat-icon>aspect_ratio</mat-icon>
+          <br/> Đoạn mẫu
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" appOpenModal="imageModal">
+          <mat-icon>add_a_photo</mat-icon>
+          <br/> Thêm Ảnh
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" [appAddComponent]="componentType.BUTTON">
+          <mat-icon>mouse</mat-icon>
+          <br/> Button
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" [matMenuTriggerFor]="headingMenu">
+          <mat-icon>font_download</mat-icon>
+          <br/> Tiêu đề
+        </a>
+        <mat-menu #headingMenu="matMenu" [overlapTrigger]="false">
+          <a href="javascript:void(0)" *ngFor="let i of [1,2,3,4,5,6]" appAddComponent="H{{i}}">Tiêu đề H{{i}}</a>
+        </mat-menu>
+      </li>
+      <li>
+        <a href="javascript:void(0)" [appAddComponent]="componentType.P">
+          <mat-icon>text_fields</mat-icon>
+          <br/> Đoạn văn
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" [appAddComponent]="componentType.UL">
+          <mat-icon>format_list_numbered</mat-icon>
+          <br/> Danh sách
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" [matMenuTriggerFor]="shapeMenu">
+          <mat-icon>check_box_outline_blank</mat-icon>
+          <br/> Hình khối
+        </a>
+        <mat-menu #shapeMenu="matMenu" [overlapTrigger]="false">
+          <a mat-menu-item href="javascript:void(0)" [appAddComponent]="componentType.BOX">
+            <mat-icon>check_box_outline_blank</mat-icon>
+            <span>Hình hộp</span>
+          </a>
+          <a mat-menu-item href="javascript:void(0)" appOpenModal="iconModal">
+            <mat-icon>insert_emoticon</mat-icon>
+            <span>Biểu tượng</span>
+          </a>
+          <a mat-menu-item href="javascript:void(0)" [appAddComponent]="componentType.HLINE">
+            <mat-icon>remove</mat-icon>
+            <span>Kẻ ngang</span>
+          </a>
+          <a mat-menu-item href="javascript:void(0)" [appAddComponent]="componentType.VLINE">
+            <mat-icon class="rotate90">remove</mat-icon>
+            <span>Biểu tượng</span>
+          </a>
+        </mat-menu>
+      </li>
+      <li>
+        <a href="javascript:void(0)" [appAddComponent]="componentType.FORM">
+          <mat-icon>content_paste</mat-icon>
+          <br/> Biểu mẫu
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" appOpenModal="manageModal">
+          <mat-icon>tab</mat-icon>
+          <br/> Popup
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" title="" [matMenuTriggerFor]="utilMenu">
+          <mat-icon>extension</mat-icon>
+          <br/> Tiện ích
+        </a>
+        <mat-menu #utilMenu="matMenu" [overlapTrigger]="false">
+          <a mat-menu-item>
+            <mat-icon>slideshow</mat-icon>
+            <span>Slideshow</span>
+          </a>
+          <a mat-menu-item>
+            <mat-icon>video_library</mat-icon>
+            <span>Youtube</span>
+          </a>
+          <a mat-menu-item>
+            <mat-icon>my_location</mat-icon>
+            <span>Google map</span>
+          </a>
+          <a mat-menu-item>
+            <mat-icon>comment</mat-icon>
+            <span>Facebook comments</span>
+          </a>
+          <a mat-menu-item>
+            <mat-icon>timer</mat-icon>
+            <span>Đồng hồ đếm ngược</span>
+          </a>
+          <a mat-menu-item>
+            <mat-icon>code</mat-icon>
+            <span>Mã HTML</span>
+          </a>
+        </mat-menu>
+      </li>
+      <li>
+        <a href="#" title="" [matMenuTriggerFor]="layerMenu">
+          <mat-icon>layers</mat-icon>
+          <br/> Layer
+        </a>
+        <mat-menu #layerMenu="matMenu" [overlapTrigger]="false">
+          <a mat-menu-item [matMenuTriggerFor]="sectionMenu">SECTION</a>
+          <a mat-menu-item [matMenuTriggerFor]="popupMenu">POPUP</a>
+        </mat-menu>
+        <mat-menu #sectionMenu="matMenu" [overlapTrigger]="false">
+          <a mat-menu-item *ngFor="let i of [1,2,3,4,5,6]" href="#SECION1{{i}}">#SECION1{{i}}</a>
+        </mat-menu>
+        <mat-menu #popupMenu="matMenu" [overlapTrigger]="false">
+          <a mat-menu-item *ngFor="let i of [1,2,3,4,5,6]" href="#SECION1{{i}}">#POPUP{{i}}</a>
+        </mat-menu>
+      </li>
+    </ul>
+    <ul class="flex-row list-unstyled">
+      <li>
+        <a href="#" title="" [matMenuTriggerFor]="settingMenu">
+          <mat-icon>settings</mat-icon>
+          <br/> Cài đặt
+        </a>
+        <mat-menu #settingMenu="matMenu" [overlapTrigger]="false">
+          <div mat-menu-item>
+            Ẩn/Hiện Thước kẻ
+            <mat-slide-toggle [color]="color" [checked]="checked" [disabled]="disabled"></mat-slide-toggle>
+          </div>
+          <a mat-menu-item>Tạo đường kẻ tự động</a>
+          <a mat-menu-item>Quản lý font</a>
+          <a mat-menu-item>Cài đặt trang</a>
+        </mat-menu>
+      </li>
+    </ul>
+  </div>
+</div>

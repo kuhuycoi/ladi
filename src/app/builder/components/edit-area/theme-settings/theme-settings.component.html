@@ -1,0 +1,133 @@
+<div class="theme-settings" #themeSettings>
+  <div class="ts-button" (click)="toggleThemeSettings()">
+    <span class="fa fa-cogs fa-spin"></span>
+  </div>
+  <div class="ts-heading">#ID: HEADLINE3</div>
+  <div class="option-list">
+    <a href="javascript:void(0)" class="ts-title">Thiết lập chữ
+      <i class="fa fa-caret-down"></i>
+    </a>
+    <div class="ts-body" style="display: block">
+      <div class="tbl">
+        <div class="option tbl-row">
+          <label class="tbl-cell">Màu chữ</label>
+          <div class="tbl-cell">
+            <input type="text" class="form-control color-picker" data-opacity=".5" data-format="rgb" data-position="bottom right" value="rgba(202,202,202,.6)">
+          </div>
+        </div>
+        <div class="option tbl-row">
+          <label class="tbl-cell">Cỡ chữ</label>
+          <div class="tbl-cell">
+            <div class="input-group">
+              <input type="number" class="form-control" value="13" />
+              <span class="input-group-addon">px</span>
+            </div>
+          </div>
+        </div>
+        <div class="option tbl-row">
+          <label class="tbl-cell">Kiểu font</label>
+          <div class="tbl-cell">
+            <select class="form-control select" data-live-search="true">
+              <option>Arial</option>
+              <option>Open Sans</option>
+              <option>Roboto</option>
+              <option>Montserrat</option>
+              <option>Quicksand</option>
+              <option>Tinos</option>
+            </select>
+          </div>
+        </div>
+        <div class="option tbl-row">
+          <label class="tbl-cell">Thiết lập</label>
+          <div class="tbl-cell">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default">
+                <span class="fa fa-bold"></span>
+              </button>
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span class="fa fa-align-left"></span>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                <li>
+                  <a href="#">
+                    <i class="fa fa-align-left"></i> Căn lề trái</a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-align-right"></i> Căn lề phải</a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-align-center"></i> Căn lề giữa</a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-align-justify"></i> Căn lề hai bên</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="option tbl-row">
+          <label class="tbl-cell">K/c chữ</label>
+          <div class="tbl-cell">
+            <div class="input-group">
+              <input type="number" class="form-control" value="0">
+              <span class="input-group-addon">px</span>
+            </div>
+          </div>
+        </div>
+        <div class="option tbl-row">
+          <label class="tbl-cell">K/c dòng</label>
+          <div class="tbl-cell">
+            <div class="input-group">
+              <input type="number" class="form-control" value="19">
+              <span class="input-group-addon">px</span>
+            </div>
+          </div>
+        </div>
+        <div class="option tbl-row">
+          <label class="tbl-cell">Căn trái</label>
+          <div class="tbl-cell">
+            <div class="input-group">
+              <input type="number" class="form-control" value="0">
+              <span class="input-group-addon">px</span>
+            </div>
+          </div>
+        </div>
+        <div class="option tbl-row">
+          <label class="tbl-cell">Căn phải</label>
+          <div class="tbl-cell">
+            <div class="input-group">
+              <input type="number" class="form-control" value="0">
+              <span class="input-group-addon">px</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="option-list">
+    <a href="javascript:void(0)" class="ts-title opened">Thiết lập tiêu đề
+      <i class="fa fa-caret-right"></i>
+    </a>
+    <div class="ts-body">
+      <div class="tbl">
+        <div class="option tbl-row">
+          <label class="tbl-cell">Kiểu</label>
+          <div class="tbl-cell">
+            <select class="form-control select" data-live-search="true">
+              <option>Tiêu đề 1</option>
+              <option>Tiêu đề 2</option>
+              <option>Tiêu đề 3</option>
+              <option>Tiêu đề 4</option>
+              <option>Tiêu đề 5</option>
+              <option>Tiêu đề 6</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
