@@ -8,7 +8,7 @@
         </a>
       </li>
       <li>
-        <a href="javascript:void(0)" appOpenModal="imageModal">
+        <a href="javascript:void(0)" appOpenModalImage>
           <mat-icon>add_a_photo</mat-icon>
           <br/> Thêm Ảnh
         </a>
@@ -132,7 +132,7 @@
           <br/> Cài đặt
         </a>
         <mat-menu #settingMenu="matMenu" [overlapTrigger]="false">
-          <div mat-menu-item>
+          <div mat-menu-item (click)="$event.stopPropagation()">
             Ẩn/Hiện Thước kẻ
             <mat-slide-toggle [color]="color" [checked]="checked" [disabled]="disabled"></mat-slide-toggle>
           </div>

@@ -8,6 +8,7 @@ import { H3, BOX } from '../common/component-type';
 @Injectable()
 export class SectionActionService {
   public sectionElementRefs = [];
+  public movedComponent = false;
   public sections: Array<WidgetSection> = [
     {
       'id': 'SECTION2',

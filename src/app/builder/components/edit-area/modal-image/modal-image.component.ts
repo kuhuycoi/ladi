@@ -1,6 +1,5 @@
 import { Subject } from 'rxjs/Subject';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalActionService } from './../../../services/modal-action.service';
 import { Component, AfterViewInit, OnInit, ViewChild, Inject } from '@angular/core';
 import { UploadFileService } from '../../../services/upload-file.service';
 import { Subscribable } from 'rxjs/Observable';
@@ -12,17 +11,27 @@ import { Subscribable } from 'rxjs/Observable';
 })
 export class ModalImageComponent implements OnInit {
   private isDragOver = false;
-  private images = [{ fileName: 'post_1', url: '/assets/builder/img/blog/post_1.jpg' },
-  { fileName: 'post_2', url: '/assets/builder/img/blog/post_2.jpg' }];
+  private images = [
+    { fileName: 'girls-1', url: '/assets/img/uploads/girls-1.jpg' },
+    { fileName: 'girls-2', url: '/assets/img/uploads/girls-2.jpg' },
+    { fileName: 'girls-3', url: '/assets/img/uploads/girls-3.jpg' },
+    { fileName: 'music-1', url: '/assets/img/uploads/music-1.jpg' },
+    { fileName: 'music-2', url: '/assets/img/uploads/music-2.jpg' },
+    { fileName: 'music-3', url: '/assets/img/uploads/music-3.jpg' },
+    { fileName: 'music-4', url: '/assets/img/uploads/music-4.jpg' },
+    { fileName: 'music-5', url: '/assets/img/uploads/music-5.jpg' },
+    { fileName: 'nature-1', url: '/assets/img/uploads/nature-1.jpg' },
+    { fileName: 'nature-2', url: '/assets/img/uploads/nature-2.jpg' },
+    { fileName: 'nature-3', url: '/assets/img/uploads/nature-3.jpg' },
+    { fileName: 'nature-4', url: '/assets/img/uploads/nature-4.jpg' },
+    { fileName: 'nature-5', url: '/assets/img/uploads/nature-5.jpg' },
+    { fileName: 'nature-6', url: '/assets/img/uploads/nature-6.jpg' },
+    { fileName: 'nature-7', url: '/assets/img/uploads/nature-7.jpg' },
+    { fileName: 'space-1', url: '/assets/img/uploads/space-1.jpg' },
+    { fileName: 'space-2', url: '/assets/img/uploads/space-2.jpg' }
+];
   @ViewChild('managerImage') content: any;
-  constructor(private uploadFileService: UploadFileService, private modalActionService: ModalActionService, private ngbModal: NgbModal) {
-    const popup: Subject<any> = new Subject<any>();
-    popup.subscribe((val) => {
-      if (val === 'open') {
-        this.ngbModal.open(this.content, { size: 'lg' });
-      }
-    });
-    modalActionService.popups['managerImage'] = popup;
+  constructor(private uploadFileService: UploadFileService) {
   }
   ngOnInit() {
   }

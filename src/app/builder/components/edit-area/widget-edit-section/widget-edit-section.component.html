@@ -1,0 +1,22 @@
+<div class="edit-section">
+  <ul>
+    <li title="Nhân bản" ng-click="duplicate()">
+      <i class="material-icons">filter_none</i>
+    </li>
+    <li lp-show="setElement" ng-click="convertBackgroundToElement()" title="Thu nhỏ" style="display: none;">
+      <i class="material-icons">fullscreen_exit</i>
+    </li>
+    <li ng-click="moveup()" title="Lên trên">
+      <i class="material-icons">expand_less</i>
+    </li>
+    <li ng-click="movedown()" title="Xuống dưới">
+      <i class="material-icons">expand_more</i>
+    </li>
+    <li ng-click="deleteElement()" title="Xóa">
+      <i class="ion-ios-trash-outline"></i>
+    </li>
+  </ul>
+</div>
+<button class="add-section" mat-raised-button color="primary">
+  <span><i class="ion-plus-round"></i> Thêm Đoạn Mẫu</span>
+</button>

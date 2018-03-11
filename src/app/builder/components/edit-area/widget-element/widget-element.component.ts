@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Input, ViewChild, HostListener, AfterContentInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, HostListener, AfterContentInit, AfterViewChecked, AfterContentChecked } from '@angular/core';
 import { Rect } from '../../../interfaces/rect';
 import { WidgetComponent } from '../../../interfaces/widget-component';
 import * as componentType from '../../../common/component-type';
@@ -6,6 +6,10 @@ import { ComponentActionService } from '../../../services/component-action.servi
 import { Offset } from '../../../interfaces/offset';
 import { Dimension } from '../../../interfaces/dimension';
 import { ComponentUI } from '../../../classes/component-ui';
+import { X_RESIZE } from '../../../common/component-type';
+import { element } from 'protractor';
+import { SectionActionService } from '../../../services/section-action.service';
+import { WidgetSectionComponent } from '../widget-section/widget-section.component';
 declare var $: any;
 
 @Component({
@@ -15,71 +19,72 @@ declare var $: any;
 })
 export class WidgetElementComponent implements OnInit {
   private componentType = componentType;
-  private isAttached = false;
   @Input('component') component: WidgetComponent;
+  @Input('parent') parent: WidgetSectionComponent;
   private resize;
-  private componentUI: ComponentUI;
-  constructor(private elementRef: ElementRef, private componentActionService: ComponentActionService) {
+  public componentUI: ComponentUI;
+  public isAttachEdit = false;
+
+  constructor(public elementRef: ElementRef, private componentActionService: ComponentActionService,
+    private sectionActionService: SectionActionService) {
   }
   ngOnInit() {
-    // if (this.componentActionService.selectedRef) {
-    //   this.componentActionService.selectedRef.nativeElement.classList = '';
-    //   this.isAttached = true;
-    //   this.componentActionService.selectedRef = this.elementRef;
-    //   this.componentActionService.selectedRef.nativeElement.classList.add('attach-resize');
-    // }
-  }
-  @HostListener('click', ['$event'])
-  attachResizeElement($event: Event) {
-    $event.preventDefault();
-    $event.stopPropagation();
+    const $this = this;
     const cService = this.componentActionService;
-    const selectedRef = this.componentActionService.selectedRef;
-    if (selectedRef) {
-      if ($(selectedRef.nativeElement).draggable('instance')) {
-        $(selectedRef.nativeElement).draggable('destroy');
-      }
-      if ($(selectedRef.nativeElement).resizable('instance')) {
-        $(selectedRef.nativeElement).resizable('destroy');
-      }
-    }
-    if (this.elementRef !== this.componentActionService.selectedRef) {
-      this.componentActionService.selectedRef = this.elementRef;
-    }
+    const sService = this.sectionActionService;
+    const parentElm = this.parent.elementRef.nativeElement;
+    const elm: HTMLElement = this.elementRef.nativeElement;
     this.componentUI = new ComponentUI($(this.elementRef.nativeElement));
     this.componentUI.onDragStop = function (position) {
-      cService.updateComponentOffset(cService.selectedRef.nativeElement.dataset.id, position);
+      const selectedId = elm.dataset.id;
+      const offset = { top: elm.offsetTop, left: elm.offsetLeft };
+      if (offset.top > parentElm.offsetHeight || offset.top < 0) {
+        for (const sectionRef of sService.sectionElementRefs) {
+          if (offset.top + parentElm.offsetTop < sectionRef.nativeElement.offsetTop + sectionRef.nativeElement.offsetHeight
+            && offset.top + parentElm.offsetTop >= sectionRef.nativeElement.offsetTop) {
+            $this.component.rect.offset = {
+              top: position.top + parentElm.offsetTop - sectionRef.nativeElement.offsetTop,
+              left: position.left
+            };
+            cService.moveComponentToSection(selectedId, sectionRef.nativeElement.dataset.id);
+            sService.movedComponent = true;
+            break;
+          }
+        }
+      } else {
+        $this.component.rect.offset = position;
+      }
+    };
+    this.componentUI.onResizeStop = function (size) {
+      $this.component.rect.dimension = size;
     };
     this.componentUI.initDrag();
-    this.componentUI.resizeDirection = componentType.RESIZE_DIRECTIONS[this.component.type];
+    this.componentUI.resizeDirection = componentType.RESIZE_DIRECTIONS[this.component.type] || componentType.X_RESIZE;
     this.componentUI.initResize();
-  }
-  @HostListener('document:click', ['$event'])
-  clickedOutside($event) {
-    // $(this.elementRef.nativeElement).resizable('destroy');
-    const selectedRef: ElementRef = this.componentActionService.selectedRef;
-    this.componentActionService.selectedRef = null;
-    if (selectedRef) {
-      if ($(selectedRef.nativeElement).draggable('instance')) {
-        $(selectedRef.nativeElement).draggable('destroy');
-      }
-      if ($(selectedRef.nativeElement).resizable('instance')) {
-        $(selectedRef.nativeElement).resizable('destroy');
-      }
+    if (!sService.movedComponent) {
+      this.componentUI.disableDrag();
+      this.componentUI.disableResize();
     }
-    if (this.isAttached) {
-      // const selectedElm: HTMLElement = selectedRef.nativeElement;
-      // const elm: HTMLElement = this.componentActionService.selectedRef.nativeElement;
-      // if (elm.classList.contains('attach-edit')) {
-      //   const contentElm = elm.querySelector('.widget-content');
-      //   if (contentElm) {
-      //     this.componentActionService.updateComponentContent(elm.dataset.id, contentElm.innerHTML);
-      //     contentElm.removeAttribute('contenteditable');
-      //     this.componentActionService.updateComponentDimention(elm.dataset.id, { 'height': selectedElm.offsetHeight });
-      //     (selectedElm.querySelector('.widget-element') as HTMLElement).style.removeProperty('min-height');
-      //   }
-      // }
-      // elm.className = '';
+    sService.movedComponent = false;
+  }
+  @HostListener('click', ['$event'])
+  attachResizeElement(target: Event) {
+    if (!this.isAttachEdit) {
+      this.componentUI.enableDrag();
+      this.componentUI.enableResize();
+    }
+  }
+  @HostListener('document:click', ['$event.target'])
+  clickedOutside(target) {
+    if (!this.elementRef.nativeElement.contains(target)) {
+      this.componentUI.disableDrag();
+      this.componentUI.disableResize();
+      if (this.isAttachEdit) {
+        const conentElm = this.elementRef.nativeElement.querySelector('.widget-content') as HTMLElement;
+        conentElm.removeAttribute('contenteditable');
+        this.isAttachEdit = false;
+        this.component.content = conentElm.innerHTML;
+      }
     }
   }
 }

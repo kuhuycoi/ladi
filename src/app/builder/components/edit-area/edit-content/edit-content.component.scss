@@ -3,14 +3,11 @@
 }
 
 #edit-content {
-    font-family: "Open Sans", sans-serif;
-    font-size: 13px;
     line-height: 18px;
     color: #000;
     background-color: #fff;
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.03);
     position: relative;
-    overflow: hidden;
 }
 
 app-section {
@@ -22,15 +19,14 @@ app-section {
 #edit-content app-section+app-section {
     border-top: none;
 }
-
 #diver-line-x {
-    border-bottom: 1px dashed;
+    border-top: 1px solid greenyellow;
     width: 100%;
     left: 0;
 }
 
 #diver-line-y {
-    border-left: 1px dashed #00C8F8;
+    border-left: 1px solid greenyellow;
     height: 100%;
     top: 0;
 }

@@ -19,7 +19,7 @@
       <a>Tạo nhóm</a>
     </li>
     <li class="contro-text" lp-show="edittext">
-      <a (click)="enableEdit()">Sửa chữ</a>
+      <a (mousedown)="enableEdit($event)">Sửa chữ</a>
     </li>
     <li data-toggle="tooltip" data-placement="top" title="" data-original-title="ghim" style="display: none;">
       <a>
@@ -57,12 +57,12 @@
       </a>
     </li>
     <li data-toggle="tooltip" data-placement="top" title="" data-original-title="Nhân bản">
-      <a (click)="cloneComponent()">
+      <a (click)="cloneComponent($event)">
         <i class="material-icons" data-tooltip="Nhân bản">filter_none</i>
       </a>
     </li>
     <li data-toggle="tooltip" data-placement="top" title="" data-original-title="Xóa">
-      <a (click)="deleteComponent()">
+      <a (click)="deleteComponent($event)">
         <i class="ion-ios-trash-outline" data-tooltip="Xóa"></i>
       </a>
     </li>

@@ -6,7 +6,7 @@ import { Component, OnInit, Input, AfterViewChecked, AfterContentInit, Inject } 
 })
 export class H1Component implements OnInit {
   @Input() data;
-  constructor( ) { }
+  constructor() { }
 
   ngOnInit() {
   }

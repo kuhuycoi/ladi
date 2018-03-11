@@ -15,11 +15,27 @@ export class ComponentUI {
   public onResizeStop;
   public resizeDirection: Array<any>;
   private componentType = componentType;
+  public autoHide = false;
   constructor($elm) {
     this.$elm = $elm;
     this.diverX = document.getElementById('diver-line-x');
     this.diverY = document.getElementById('diver-line-y');
     this.editContent = document.getElementById('edit-content');
+  }
+  disableDrag() {
+    this.$elm.draggable('disable');
+  }
+  enableDrag() {
+    this.$elm.draggable('enable');
+  }
+  disableResize() {
+    this.$elm.resizable('disable');
+  }
+  enableResize() {
+    this.$elm.resizable('enable');
+  }
+  changeDragOption(option, value) {
+    this.$elm.draggable('option', option, value);
   }
   private getOffset(elem) {
     const offset: Offset = { top: 0, left: 0 };
@@ -51,10 +67,10 @@ export class ComponentUI {
           if (offset.left === snapOffset.left || offset.left === snapOffset.left + snapDimension.width
             || offset.left + dimension.width === snapOffset.left + snapDimension.width
             || offset.left + dimension.width === snapOffset.left) {
-            if (offset.left === snapOffset.left || offset.left + dimension.width === snapOffset.left) {
-              $this.diverY.style.left = offset.left - editContentOffset.left + 'px';
+            if (offset.left === snapOffset.left || offset.left === snapOffset.left + snapDimension.width) {
+              $this.diverY.style.left = offset.left - 1 + 'px';
             } else {
-              $this.diverY.style.left = offset.left - editContentOffset.left + dimension.width + 'px';
+              $this.diverY.style.left = offset.left + dimension.width + 'px';
             }
             $this.diverY.style.display = 'block';
           }
@@ -75,7 +91,7 @@ export class ComponentUI {
         $this.diverY.removeAttribute('style');
         const position = ui.position;
         if (typeof $this.onDragStop === 'function') {
-          $this.onDragStop(ui.position);
+          $this.onDragStop(ui.position, ui.offset);
         }
         $this.initDrag();
       }
@@ -86,7 +102,6 @@ export class ComponentUI {
     this.resizeDirection.forEach((dir, index) => {
       directionStr += index ? ',' + dir : dir;
     });
-    console.log(directionStr);
     return directionStr;
   }
   initResize() {
@@ -96,6 +111,7 @@ export class ComponentUI {
       snap: '.ui-snap',
       snapTolerance: 10,
       handles: $this.getResizeDirection(),
+      autoHide: $this.autoHide,
       start: function (event, ui) {
       },
       resize: function (event, ui) {
@@ -112,12 +128,12 @@ export class ComponentUI {
         const snapCoords = $resize.data('ui-resizable').coords;
         $.each(snapCoords, function (i, coord) {
           if (offset.left === coord.l || offset.left === coord.r) {
-            $this.diverY.style.left = offsetUpTop.left - editContentOffset.left + 1 + 'px';
+            $this.diverY.style.left = offsetUpTop.left + 'px';
             if (dimension.width !== originalSize.width) {
               $this.diverY.style.display = 'block';
             }
           } else if (offset.left + dimension.width === coord.l || offset.left + dimension.width === coord.r) {
-            $this.diverY.style.left = offsetUpTop.left + dimension.width - editContentOffset.left + 'px';
+            $this.diverY.style.left = offsetUpTop.left + dimension.width + 'px';
             if (dimension.width !== originalSize.width) {
               $this.diverY.style.display = 'block';
             }
@@ -141,6 +157,9 @@ export class ComponentUI {
         if (ui.originalSize.width !== ui.size.width) {
           ($this.$elm[0] as HTMLElement).style.height = ($this.$elm[0] as HTMLElement).offsetHeight + 'px';
           ($this.$elm[0].querySelector('.widget-content') as HTMLElement).style.removeProperty('min-height');
+        }
+        if (typeof $this.onResizeStop === 'function') {
+          $this.onResizeStop(ui.size);
         }
       }
     });

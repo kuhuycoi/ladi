@@ -1,4 +1,4 @@
-<ng-template #managerImage let-c="close" let-d="dismiss">
+<!-- <ng-template #managerImage let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h5 class="modal-title">Quản lý thư viện</h5>
     <button type="button" class="close" (click)="d()" aria-label="Close">
@@ -41,4 +41,44 @@
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="c()">Đóng</button>
   </div>
-</ng-template>
+</ng-template> -->
+
+<div class="d-flex justify-content-between align-items-top">
+  <div>
+    <button mat-raised-button color="primary" class="btn-upload">
+      Tải lên
+      <mat-icon>attach_file</mat-icon>
+      <input name="file" type="file" multiple />
+    </button>
+  </div>
+  <mat-form-field>
+    <input type="text" matInput placeholder="Nhập từ khóa">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+<form action="/file-upload" id="upload-img" (drag)='onDrag($event)' (dragover)='dragOver($event)' (dragstart)='dragStart($event)'
+  (dragenter)='dragEnter($event)' (dragend)='dragEnd($event)' (dragleave)='dragLeave($event)' (drop)='onDrop($event)'>
+  <div class="fallback" [ngClass]="{'isDragOver': isDragOver }">
+    <h2>
+      <mat-icon>cloud_upload</mat-icon>
+      Kéo thả file để upload</h2>
+    <div class="row uploaded-list">
+      <div class="col-lg-2 col-md-3 col-sm-4 col-6" *ngFor="let image of images">
+        <div class="img">
+          <div class="img-cover">
+            <img [src]="image.url" [alt]="image.name" />
+          </div>
+          <h3>{{image.fileName}}</h3>
+          <div class="img-action">
+            <button mat-mini-fab color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-mini-fab color="primary">
+              <mat-icon>check</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
