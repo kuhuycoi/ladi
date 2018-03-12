@@ -6,8 +6,8 @@ export const H1 = 'H1';
 export const H2 = 'H2';
 export const H3 = 'H3';
 export const H4 = 'H4';
-export const H5 = 'H6';
-export const H6 = 'H5';
+export const H5 = 'H5';
+export const H6 = 'H6';
 export const P = 'P';
 export const UL = 'UL';
 export const BOX = 'BOX';
@@ -98,13 +98,35 @@ export const BUTTON_COMPONENT: WidgetComponent = {
     'text-align': 'center'
   }
 };
+export const H1_COMPONENT: WidgetComponent = {
+  'id': H1 + new Date().getTime().toString(),
+  'type': H1,
+  'content': 'Tiêu đề H1',
+  'rect': {
+    'dimension': {
+      'width': 173,
+      'height': 42
+    },
+    'offset': {
+      'top': 0,
+      'left': 0,
+    }
+  },
+  'contentStyle': {
+    'border-radius': '5px',
+    'font-size': '36px',
+    'line-height': '42px',
+    'font-weight': 400,
+    'color': 'rgb(0, 0, 0)'
+  }
+};
 export const H2_COMPONENT: WidgetComponent = {
   'id': H2 + new Date().getTime().toString(),
   'type': H2,
-  'content': 'Tiêu đề lớn',
+  'content': 'Tiêu đề H2',
   'rect': {
     'dimension': {
-      'width': 223,
+      'width': 145,
       'height': 36
     },
     'offset': {
@@ -124,11 +146,11 @@ export const H2_COMPONENT: WidgetComponent = {
 export const H3_COMPONENT: WidgetComponent = {
   'id': H3 + new Date().getTime().toString(),
   'type': H3,
-  'content': 'Tiêu đề vừa',
+  'content': 'Tiêu đề H3',
   'rect': {
     'dimension': {
-      'width': 223,
-      'height': 36
+      'width': 116,
+      'height': 30
     },
     'offset': {
       'top': 0,
@@ -147,11 +169,11 @@ export const H3_COMPONENT: WidgetComponent = {
 export const H4_COMPONENT: WidgetComponent = {
   'id': H4 + new Date().getTime().toString(),
   'type': H4,
-  'content': 'Tiêu đề nhỏ',
+  'content': 'Tiêu đề H4',
   'rect': {
     'dimension': {
-      'width': 223,
-      'height': 36
+      'width': 116,
+      'height': 27
     },
     'offset': {
       'top': 0,
@@ -162,6 +184,51 @@ export const H4_COMPONENT: WidgetComponent = {
     'border-radius': '5px',
     'font-size': '21px',
     'line-height': '27px',
+    'font-weight': 400,
+    'color': 'rgb(0, 0, 0)'
+  }
+};
+
+export const H5_COMPONENT: WidgetComponent = {
+  'id': H5 + new Date().getTime().toString(),
+  'type': H5,
+  'content': 'Tiêu đề H5',
+  'rect': {
+    'dimension': {
+      'width': 87,
+      'height': 24
+    },
+    'offset': {
+      'top': 0,
+      'left': 0,
+    }
+  },
+  'contentStyle': {
+    'border-radius': '5px',
+    'font-size': '18px',
+    'line-height': '24px',
+    'font-weight': 400,
+    'color': 'rgb(0, 0, 0)'
+  }
+};
+export const H6_COMPONENT: WidgetComponent = {
+  'id': H6 + new Date().getTime().toString(),
+  'type': H6,
+  'content': 'Tiêu đề H6',
+  'rect': {
+    'dimension': {
+      'width': 78,
+      'height': 22
+    },
+    'offset': {
+      'top': 0,
+      'left': 0
+    }
+  },
+  'contentStyle': {
+    'border-radius': '5px',
+    'font-size': '16px',
+    'line-height': '22px',
     'font-weight': 400,
     'color': 'rgb(0, 0, 0)'
   }
@@ -281,9 +348,12 @@ export const VLINE_COMPONENT: WidgetComponent = {
 };
 export const COMPONENTS = {
   BUTTON: BUTTON_COMPONENT,
+  H1: H1_COMPONENT,
   H2: H2_COMPONENT,
   H3: H3_COMPONENT,
   H4: H4_COMPONENT,
+  H5: H5_COMPONENT,
+  H6: H6_COMPONENT,
   P: P_COMPONENT,
   UL: UL_COMPONENT,
   BOX: BOX_COMPONENT,

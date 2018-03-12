@@ -52,7 +52,6 @@ a {
 
 :host {
     display: flex !important;
-    width: 100%;
     cursor: all-scroll;
     -webkit-user-select: none;
     -moz-user-select: none;
