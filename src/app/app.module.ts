@@ -68,18 +68,21 @@ const PIPES = [ConvertRectPipe, JoinStylePipe];
 import { UploadFileService } from './builder/services/upload-file.service';
 import { ComponentActionService } from './builder/services/component-action.service';
 import { SectionActionService } from './builder/services/section-action.service';
-const PROVIDERS = [SectionActionService, ComponentActionService, UploadFileService];
+import { FontActionService } from './builder/services/font-action.service';
+const PROVIDERS = [SectionActionService, ComponentActionService, UploadFileService, FontActionService];
 // PROVIDERS
 
 // Other
 import { ColorPickerModule } from 'ngx-color-picker';
+import { PanelCharacterComponent } from './builder/components/edit-area/properties-panel/panel-character/panel-character.component';
+import { FormsModule } from '@angular/forms';
 // Other
 @NgModule({
   declarations: [
-    LAYOUT_COMPONENT, EDIT_AREA, DIRECTIVES, PIPES
+    LAYOUT_COMPONENT, EDIT_AREA, DIRECTIVES, PIPES, PanelCharacterComponent
   ],
   imports: [
-    BrowserModule, MATERIAL_MODULE, BrowserAnimationsModule, HttpModule, ColorPickerModule
+    BrowserModule, MATERIAL_MODULE, BrowserAnimationsModule, HttpModule, ColorPickerModule, FormsModule
   ],
   entryComponents: [ModalImageComponent, ModalSectionTemplateComponent],
   providers: PROVIDERS,

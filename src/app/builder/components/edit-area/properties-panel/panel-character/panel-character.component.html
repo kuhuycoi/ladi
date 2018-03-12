@@ -1,0 +1,22 @@
+<link href="https://fonts.googleapis.com/css?family=Arima+Madurai:300,400,700|
+Athiti:400,600,700|Baloo+Bhaina|Bungee|Chonburi|Cormorant+Upright:400,600,700|
+Itim|Lobster|Montserrat:300,400,600,700|
+Open+Sans:400,600,700|
+Pattaya|Prata|Quicksand|Roboto+Slab:300,400,700|
+Roboto:300,400,700|Source+Sans+Pro:300,400,600,700|
+Taviraj:300,400,600,700|
+Tinos:400,700|
+Trirong:300,400,600,700&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+<mat-form-field>
+  <input matInput placeholder="Màu chữ" cpPosition="bottom" [(colorPicker)]="component.contentStyle['color']" [style.background]="component.contentStyle.color"
+    readonly [value]="component.contentStyle.color">
+</mat-form-field>
+<mat-form-field>
+  <input type="number" matInput placeholder="Cỡ chữ" min="1" (ngModelChange)="fontSizeChange($event)" [ngModel]="component.contentStyle['font-size'].split('px')[0]">
+  <span matSuffix>px</span>
+</mat-form-field>
+<mat-form-field>
+  <mat-select placeholder="Kiểu Font" [(value)]="component.contentStyle['font-family']">
+    <mat-option *ngFor="let font of fService.fonts" [value]="font.family">{{font.name}}</mat-option>
+  </mat-select>
+</mat-form-field>

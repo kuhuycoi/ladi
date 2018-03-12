@@ -5,18 +5,7 @@
       <mat-expansion-panel-header>
         <mat-panel-title>Thiết lập chữ</mat-panel-title>
       </mat-expansion-panel-header>
-      <mat-form-field>
-        <input matInput placeholder="Màu chữ" cpPosition="bottom" [(colorPicker)]="selectedComponent.contentStyle['color']" [style.background]="selectedComponent.contentStyle.color"
-          readonly [value]="selectedComponent.contentStyle.color">
-      </mat-form-field>
-      <mat-form-field>
-        <input type="number" matInput placeholder="Cỡ chữ" [value]="selectedComponent.contentStyle['font-size'].split('px')[0]"
-         (input)="selectedComponent.contentStyle['font-size'] = $event.target.value+'px'">
-        <span matSuffix>px</span>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Age">
-      </mat-form-field>
+      <app-panel-character></app-panel-character>
     </mat-expansion-panel>
     <mat-expansion-panel>
       <mat-expansion-panel-header>

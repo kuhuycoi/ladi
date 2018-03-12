@@ -15,6 +15,7 @@ export const HLINE = 'HLINE';
 export const VLINE = 'VLINE';
 export const ICON = 'ICON';
 export const FORM = 'FORM';
+export const TEXT_COMPONENT = [H1, H2, H3, H4, H5, H6, P, UL];
 // TODO
 export const N_RESIZE = 'n';
 export const W_RESIZE = 'w';
@@ -104,8 +105,7 @@ export const H1_COMPONENT: WidgetComponent = {
   'content': 'Tiêu đề H1',
   'rect': {
     'dimension': {
-      'width': 173,
-      'height': 42
+      'width': 173
     },
     'offset': {
       'top': 0,
@@ -126,8 +126,7 @@ export const H2_COMPONENT: WidgetComponent = {
   'content': 'Tiêu đề H2',
   'rect': {
     'dimension': {
-      'width': 145,
-      'height': 36
+      'width': 145
     },
     'offset': {
       'top': 0,
@@ -149,8 +148,7 @@ export const H3_COMPONENT: WidgetComponent = {
   'content': 'Tiêu đề H3',
   'rect': {
     'dimension': {
-      'width': 116,
-      'height': 30
+      'width': 116
     },
     'offset': {
       'top': 0,
@@ -172,8 +170,7 @@ export const H4_COMPONENT: WidgetComponent = {
   'content': 'Tiêu đề H4',
   'rect': {
     'dimension': {
-      'width': 116,
-      'height': 27
+      'width': 116
     },
     'offset': {
       'top': 0,
@@ -195,8 +192,7 @@ export const H5_COMPONENT: WidgetComponent = {
   'content': 'Tiêu đề H5',
   'rect': {
     'dimension': {
-      'width': 87,
-      'height': 24
+      'width': 87
     },
     'offset': {
       'top': 0,
@@ -217,8 +213,7 @@ export const H6_COMPONENT: WidgetComponent = {
   'content': 'Tiêu đề H6',
   'rect': {
     'dimension': {
-      'width': 78,
-      'height': 22
+      'width': 78
     },
     'offset': {
       'top': 0,
@@ -242,8 +237,7 @@ export const P_COMPONENT: WidgetComponent = {
   với nội dung được thiết kế để phục vụ một mục tiêu duy nhất!`,
   'rect': {
     'dimension': {
-      'width': 223,
-      'height': 114
+      'width': 223
     },
     'offset': {
       'top': 0,
@@ -263,8 +257,7 @@ export const UL_COMPONENT: WidgetComponent = {
   'type': UL,
   'rect': {
     'dimension': {
-      'width': 200,
-      'height': 160
+      'width': 200
     },
     'offset': {
       'top': 0,

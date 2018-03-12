@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Input, HostListener, AfterContentInit, AfterViewChecked, AfterContentChecked } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, HostListener, AfterViewChecked } from '@angular/core';
 import { Rect } from '../../../interfaces/rect';
 import { WidgetComponent } from '../../../interfaces/widget-component';
 import * as componentType from '../../../common/component-type';
@@ -6,7 +6,7 @@ import { ComponentActionService } from '../../../services/component-action.servi
 import { Offset } from '../../../interfaces/offset';
 import { Dimension } from '../../../interfaces/dimension';
 import { ComponentUI } from '../../../classes/component-ui';
-import { X_RESIZE } from '../../../common/component-type';
+import { X_RESIZE, TEXT_COMPONENT } from '../../../common/component-type';
 import { element } from 'protractor';
 import { SectionActionService } from '../../../services/section-action.service';
 import { WidgetSectionComponent } from '../widget-section/widget-section.component';
@@ -17,9 +17,9 @@ declare var $: any;
   templateUrl: `./widget-element.component.html`,
   styleUrls: ['./widget-element.component.css']
 })
-export class WidgetElementComponent implements OnInit {
+export class WidgetElementComponent implements OnInit, AfterViewChecked {
   private componentType = componentType;
-  @Input('component') component: WidgetComponent;
+  @Input('component') public component: WidgetComponent;
   @Input('parent') parent: WidgetSectionComponent;
   private resize;
   public componentUI: ComponentUI;
@@ -27,6 +27,30 @@ export class WidgetElementComponent implements OnInit {
 
   constructor(public elementRef: ElementRef, private componentActionService: ComponentActionService,
     private sectionActionService: SectionActionService) {
+  }
+  ngAfterViewChecked() {
+    if (this.componentActionService.selectedComponent && this.componentActionService.selectedComponent.component.id === this.component.id) {
+      this.componentActionService.selectedComponent = this;
+      this.componentUI.enableDrag();
+      this.componentUI.enableResize();
+      if (componentType.TEXT_COMPONENT.indexOf(this.component.type) < 0) {
+        const beforeHeight = this.elementRef.nativeElement.offsetHeight;
+        this.elementRef.nativeElement.style.minHeight = beforeHeight + 'px';
+        this.elementRef.nativeElement.style.removeProperty('height');
+        const afterHeight = this.elementRef.nativeElement.offsetHeight;
+        // TODO CHECK LẠI TEMPLATE XEM CÓ ĐỔI KO
+        this.component.rect.dimension.height = afterHeight;
+      } else {
+        let lineHeight = this.component.contentStyle['line-height'];
+        if (lineHeight) {
+          lineHeight = lineHeight.split('px')[0];
+          const fontSize = this.component.contentStyle['font-size'];
+          if (lineHeight < fontSize) {
+            this.component.contentStyle['line-height'] = fontSize;
+          }
+        }
+      }
+    }
   }
   ngOnInit() {
     const $this = this;
@@ -56,7 +80,11 @@ export class WidgetElementComponent implements OnInit {
       }
     };
     this.componentUI.onResizeStop = function (size) {
-      $this.component.rect.dimension = size;
+      if (componentType.TEXT_COMPONENT.indexOf($this.component.type)) {
+        $this.component.rect.dimension.width = size.width;
+      } else {
+        $this.component.rect.dimension = size;
+      }
     };
     this.componentUI.initDrag();
     this.componentUI.resizeDirection = componentType.RESIZE_DIRECTIONS[this.component.type] || componentType.X_RESIZE;
@@ -73,7 +101,7 @@ export class WidgetElementComponent implements OnInit {
       this.componentUI.enableDrag();
       this.componentUI.enableResize();
     }
-    this.componentActionService.selectedComponent = this.component;
+    this.componentActionService.selectedComponent = this;
   }
   @HostListener('document:click', ['$event.target'])
   clickedOutside(target) {
@@ -86,7 +114,11 @@ export class WidgetElementComponent implements OnInit {
         this.isAttachEdit = false;
         this.component.content = conentElm.innerHTML;
       }
-      // this.componentActionService.selectedComponent = null;
+      // if (this.componentActionService.selectedComponent &&
+      //   this.componentActionService.selectedComponent.component.id !== this.component.id) {
+      //   console.log(this.component.id)
+      //   // this.componentActionService.selectedComponent = null;
+      // }
     }
   }
 }

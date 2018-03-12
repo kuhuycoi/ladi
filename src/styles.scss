@@ -179,7 +179,8 @@ app-section>.ui-resizable-handle.ui-resizable-s {
     right: 50px;
     margin: 0 auto;
     width: 30px;
-    background: url(/assets/img/arrow-resize.png) !important
+    background: url(/assets/img/arrow-resize.png) !important;
+    z-index: 2;;
 }
 
 app-element.ui-draggable-disabled .ui-resizable-handle {

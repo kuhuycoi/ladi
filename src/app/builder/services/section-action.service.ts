@@ -28,8 +28,7 @@ export class SectionActionService {
           'content': `Giảm giá Ưu đãi mua sắm.\nLên tới 45% sản phẩm`,
           'rect': {
             'dimension': {
-              'width': 488,
-              'height': 88
+              'width': 488
             },
             'offset': {
               'top': 173,
@@ -37,6 +36,7 @@ export class SectionActionService {
             }
           },
           'contentStyle': {
+            'font-family': '\'Open Sans\',sans-serif,open-sans',
             'font-size': '36px',
             'color': 'rgb(36, 36, 36)',
             'font-weight': '700',
@@ -189,8 +189,7 @@ export class SectionActionService {
           'content': `Giảm giá Ưu đãi mua sắm.\nLên tới 45% sản phẩm`,
           'rect': {
             'dimension': {
-              'width': 488,
-              'height': 88
+              'width': 488
             },
             'offset': {
               'top': 173,

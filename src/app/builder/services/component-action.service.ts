@@ -6,10 +6,11 @@ import { WidgetSection } from '../interfaces/widget-section';
 import { Offset } from '../interfaces/offset';
 import { Rect } from '../interfaces/rect';
 import { Dimension } from '../interfaces/dimension';
+import { WidgetElementComponent } from '../components/edit-area/widget-element/widget-element.component';
 
 @Injectable()
 export class ComponentActionService {
-  public selectedComponent: WidgetComponent;
+  public selectedComponent: WidgetElementComponent;
   public lastestRef: ElementRef;
   constructor(@Inject(SectionActionService) private sectionActionService: SectionActionService) { }
 
@@ -81,43 +82,44 @@ export class ComponentActionService {
     }
     return null;
   }
-  updateComponentDimention(id: string, dimension: Dimension) {
-    for (const key of Object.keys(this.sectionActionService.sections)) {
-      const section: WidgetSection = this.sectionActionService.sections[key];
-      if (section != null) {
-        for (const key1 of Object.keys(section.childrens)) {
-          const component: WidgetComponent = section.childrens[key1];
-          if (component.id === id) {
-            dimension.width = dimension.width || component.rect.dimension.width;
-            dimension.height = dimension.height || component.rect.dimension.height;
-            const rect: Rect = {
-              'offset': component.rect.offset,
-              'dimension': dimension
-            };
-            component.rect = rect;
-            return;
-          }
-        }
-      }
-    }
-  }
-  updateComponentOffset(id: string, offset: Offset) {
-    for (const key of Object.keys(this.sectionActionService.sections)) {
-      const section: WidgetSection = this.sectionActionService.sections[key];
-      if (section != null) {
-        for (const key1 of Object.keys(section.childrens)) {
-          const component: WidgetComponent = section.childrens[key1];
-          if (component.id === id) {
-            const rect: Rect = {
-              'offset': offset,
-              'dimension': component.rect.dimension
-            };
-            component.rect = rect;
-          }
-        }
-      }
-    }
-  }
+  // updateComponentDimention(id: string, dimension: Dimension) {
+  //   for (const key of Object.keys(this.sectionActionService.sections)) {
+  //     const section: WidgetSection = this.sectionActionService.sections[key];
+  //     if (section != null) {
+  //       for (const key1 of Object.keys(section.childrens)) {
+  //         const component: WidgetComponent = section.childrens[key1];
+  //         if (component.id === id) {
+  //           dimension.width = dimension.width || component.rect.dimension.width;
+  //           dimension.height = dimension.height || component.rect.dimension.height;
+  //           const rect: Rect = {
+  //             'offset': component.rect.offset,
+  //             'dimension': dimension
+  //           };
+  //           component.rect = rect;
+  //           console.log(rect);
+  //           return;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  // updateComponentOffset(id: string, offset: Offset) {
+  //   for (const key of Object.keys(this.sectionActionService.sections)) {
+  //     const section: WidgetSection = this.sectionActionService.sections[key];
+  //     if (section != null) {
+  //       for (const key1 of Object.keys(section.childrens)) {
+  //         const component: WidgetComponent = section.childrens[key1];
+  //         if (component.id === id) {
+  //           const rect: Rect = {
+  //             'offset': offset,
+  //             'dimension': component.rect.dimension
+  //           };
+  //           component.rect = rect;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
   updateComponentRect(id: string, rect: Rect) {
     for (const key of Object.keys(this.sectionActionService.sections)) {
       const section: WidgetSection = this.sectionActionService.sections[key];
