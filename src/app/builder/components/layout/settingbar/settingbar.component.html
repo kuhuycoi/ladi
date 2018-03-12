@@ -1,3 +1,35 @@
-<p>
-  settingbar works!
-</p>
+<div id="setting-bar" *ngIf="cService.selectedComponent">
+  <h2 class="component-name">#ID: HEADLINE230</h2>
+  <mat-accordion>
+    <mat-expansion-panel opened="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Thiết lập chữ</mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+        <input matInput placeholder="Màu chữ" cpPosition="bottom" [(colorPicker)]="selectedComponent.contentStyle['color']"
+         [style.background]="selectedComponent.contentStyle.color" readonly [value]="selectedComponent.contentStyle.color">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Cỡ chữ" [(value)]="selectedComponent.contentStyle['font-size']">
+        <span matSuffix>px</span>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Age">
+      </mat-form-field>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Tùy chỉnh tiêu đề
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+          <mat-select placeholder="Kiểu tiêu đề">
+            <mat-option *ngFor="let i of [1,2,3,4,5,6]">
+              Tiêu đề {{i}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

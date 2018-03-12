@@ -1,4 +1,4 @@
-<div id="header" class="sticky-top">
+<div id="header">
   <app-menu id="menu"></app-menu>
   <app-toolbar id="toolbar"></app-toolbar>
 </div>
@@ -6,7 +6,7 @@
   <mat-sidenav-content>
     <app-edit-content></app-edit-content>
   </mat-sidenav-content>
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
-    Sidenav content
+  <mat-sidenav mode="side" position="end" [opened]="cService.selectedComponent" fixedInViewport="true" fixedTopGap="123">
+    <app-settingbar></app-settingbar>
   </mat-sidenav>
 </mat-sidenav-container>

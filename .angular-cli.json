@@ -21,7 +21,11 @@
       "styles": [
         "styles.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "assets/js/jquery-2.2.4.min.js",
+        "assets/js/jquery-ui.min.js",
+        "assets/js/jquery.ui.resizable.snap.ext.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

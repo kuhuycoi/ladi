@@ -9,7 +9,7 @@ import { Dimension } from '../interfaces/dimension';
 
 @Injectable()
 export class ComponentActionService {
-  public selectedRef: ElementRef;
+  public selectedComponent: WidgetComponent;
   public lastestRef: ElementRef;
   constructor(@Inject(SectionActionService) private sectionActionService: SectionActionService) { }
 

@@ -19,7 +19,7 @@ export class WidgetEditElementComponent implements OnInit {
     event.stopPropagation();
     const selectedId: string = this.parent.component.id;
     this.componentActionService.deleteComponentById(selectedId);
-    this.componentActionService.selectedRef = null;
+    this.componentActionService.selectedComponent = null;
     document.querySelector('.tooltip').remove();
   }
 

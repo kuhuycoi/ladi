@@ -73,6 +73,7 @@ export class WidgetElementComponent implements OnInit {
       this.componentUI.enableDrag();
       this.componentUI.enableResize();
     }
+    this.componentActionService.selectedComponent = this.component;
   }
   @HostListener('document:click', ['$event.target'])
   clickedOutside(target) {
@@ -85,6 +86,7 @@ export class WidgetElementComponent implements OnInit {
         this.isAttachEdit = false;
         this.component.content = conentElm.innerHTML;
       }
+      // this.componentActionService.selectedComponent = null;
     }
   }
 }

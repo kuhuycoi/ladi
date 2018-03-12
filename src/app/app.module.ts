@@ -7,11 +7,11 @@ import { HttpModule } from '@angular/http';
 // Material Module
 import {
   MatMenuModule, MatButtonModule, MatIconModule, MatTooltipModule, MatSlideToggleModule, MatDialogModule, MatInputModule, MatTabsModule,
-  MatSidenavModule
+  MatSidenavModule, MatExpansionModule, MatSelectModule
 } from '@angular/material';
 const MATERIAL_MODULE = [
   MatMenuModule, MatButtonModule, MatIconModule, MatTooltipModule, MatSlideToggleModule, MatDialogModule, MatInputModule, MatTabsModule,
-  MatSidenavModule
+  MatSidenavModule, MatExpansionModule, MatInputModule, MatSelectModule
 ];
 // Material Module
 
@@ -71,12 +71,15 @@ import { SectionActionService } from './builder/services/section-action.service'
 const PROVIDERS = [SectionActionService, ComponentActionService, UploadFileService];
 // PROVIDERS
 
+// Other
+import { ColorPickerModule } from 'ngx-color-picker';
+// Other
 @NgModule({
   declarations: [
     LAYOUT_COMPONENT, EDIT_AREA, DIRECTIVES, PIPES
   ],
   imports: [
-    BrowserModule, MATERIAL_MODULE, BrowserAnimationsModule, HttpModule
+    BrowserModule, MATERIAL_MODULE, BrowserAnimationsModule, HttpModule, ColorPickerModule
   ],
   entryComponents: [ModalImageComponent, ModalSectionTemplateComponent],
   providers: PROVIDERS,
