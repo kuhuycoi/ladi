@@ -6,10 +6,12 @@ import { HttpModule } from '@angular/http';
 
 // Material Module
 import {
-  MatMenuModule, MatButtonModule, MatIconModule, MatTooltipModule, MatSlideToggleModule, MatDialogModule, MatInputModule, MatTabsModule
+  MatMenuModule, MatButtonModule, MatIconModule, MatTooltipModule, MatSlideToggleModule, MatDialogModule, MatInputModule, MatTabsModule,
+  MatSidenavModule
 } from '@angular/material';
 const MATERIAL_MODULE = [
-  MatMenuModule, MatButtonModule, MatIconModule, MatTooltipModule, MatSlideToggleModule, MatDialogModule, MatInputModule, MatTabsModule
+  MatMenuModule, MatButtonModule, MatIconModule, MatTooltipModule, MatSlideToggleModule, MatDialogModule, MatInputModule, MatTabsModule,
+  MatSidenavModule
 ];
 // Material Module
 
@@ -39,10 +41,13 @@ import { EditContentComponent } from './builder/components/edit-area/edit-conten
 import { WidgetEditElementComponent } from './builder/components/edit-area/widget-edit-element/widget-edit-element.component';
 import { WidgetEditSectionComponent } from './builder/components/edit-area/widget-edit-section/widget-edit-section.component';
 import { ModalSectionTemplateComponent } from './builder/components/edit-area/modal-section-template/modal-section-template.component';
+import { VSnapLineComponent } from './builder/components/edit-area/widget-vruler/v-snap-line.component';
+import { HSnapLineComponent } from './builder/components/edit-area/widget-hruler/h-snap-line.component';
 const EDIT_AREA = [
   ButtonComponent, H1Component, H2Component, H3Component, ParagraphComponent, ListULComponent, ModalIconComponent,
   WidgetEditElementComponent, ModalImageComponent, WidgetElementComponent, WidgetSectionComponent, WidgetHRulerComponent,
-  WidgetVRulerComponent, EditContentComponent, WidgetEditSectionComponent, ModalSectionTemplateComponent
+  WidgetVRulerComponent, EditContentComponent, WidgetEditSectionComponent, ModalSectionTemplateComponent, VSnapLineComponent,
+  HSnapLineComponent
 ];
 // EDIT AREA
 

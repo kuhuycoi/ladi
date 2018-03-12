@@ -1,1 +1,6 @@
-<div class="numbers" #vNumbers></div>
+<div id="v-ruler">
+  <div class="numbers" #vNumbers></div>
+</div>
+<div id="v-snap-lines">
+  <app-vsnap-line *ngFor="let left of snapLines" [snapLines]="snapLines" [ngStyle]="{'left.px':left}" [left]="left"></app-vsnap-line>
+</div>

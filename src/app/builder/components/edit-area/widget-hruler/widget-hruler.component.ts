@@ -7,14 +7,23 @@ declare var $: any;
 })
 export class WidgetHRulerComponent implements AfterViewChecked {
   @ViewChild('hNumbers') hNumbers: ElementRef;
+  private snapLines = [];
 
   constructor(private elementRef: ElementRef) { }
 
   ngAfterViewChecked() {
-    const hHeight = this.elementRef.nativeElement.offsetHeight;
+    const elm = this.elementRef.nativeElement as HTMLElement;
+    const hruler = elm.querySelector('#h-ruler') as HTMLElement;
+    const hHeight = hruler.offsetHeight;
     this.hNumbers.nativeElement.innerHTML = '';
     for (let i = 0; i <= hHeight - 100; i += 100) {
       this.hNumbers.nativeElement.innerHTML += '<div class="number">' + i + '</div>';
+    }
+  }
+  @HostListener('click', ['$event'])
+  attachResizeElement(event: MouseEvent) {
+    if (this.snapLines.indexOf(event.clientY - 150) < 0) {
+      this.snapLines.push(event.clientY - (document.querySelector('#header') as HTMLElement).offsetHeight);
     }
   }
 }

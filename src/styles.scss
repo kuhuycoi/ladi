@@ -19,7 +19,8 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     color: #1d1d1d;
-    padding-block-end: 50px;
+    padding-bottom: 50px;
+    overflow-x: hidden;
 }
 
 .mat-button {
@@ -145,19 +146,20 @@ ul[app-type="ul"][data-order="disc"]>li::before {
 }
 
 #header {
-    z-index: 9999;
+    z-index: 99999999;
 }
 
-app-section>.ui-resizable-handle.ui-resizable-s{
-  height: 29px;
-  cursor: s-resize;
-  position: absolute;
-  bottom: -15px;
-  right: 50px;
-  margin: 0 auto;
-  width: 30px;
-  background: url(/assets/img/arrow-resize.png) !important
+app-section>.ui-resizable-handle.ui-resizable-s {
+    height: 29px;
+    cursor: s-resize;
+    position: absolute;
+    bottom: -15px;
+    right: 50px;
+    margin: 0 auto;
+    width: 30px;
+    background: url(/assets/img/arrow-resize.png) !important
 }
+
 app-element.ui-draggable-disabled .ui-resizable-handle {
     display: none;
 }
@@ -265,12 +267,17 @@ app-element {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
 }
 
+#v-ruler *,
+#h-ruler * {
+    cursor: copy;
+}
+
 #v-ruler .numbers {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background: url(/assets/img/ruler_horizontal.png) repeat-x left 0 top;
-  height: 22px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: url(/assets/img/ruler_horizontal.png) repeat-x -23px top;
+    height: 22px;
 }
 
 #v-ruler .numbers .number {
@@ -279,12 +286,14 @@ app-element {
     text-align: left;
     padding: 5px 0 0 5px;
     font-size: 10px;
-    color: #666
+    color: #666;
+    text-indent: -19px
 }
+#v-ruler .numbers .number:first-child{text-indent: -15px;}
 
-#v-ruler .numbers .number:last-child {
-    width: auto;
-}
+// #v-ruler .numbers .number:last-child {
+//     width: auto;
+// }
 
 #h-ruler {
     height: 100%;
@@ -300,7 +309,7 @@ app-element {
 }
 
 #h-ruler .numbers {
-    background: url(/assets/img/ruler_vertical.png) repeat-y left top;
+    background: url(/assets/img/ruler_vertical.png) repeat-y left -23px;
     width: 22px;
     height: 100%;
     overflow: hidden;
@@ -316,6 +325,14 @@ app-element {
     color: #666;
     word-break: break-all;
     line-height: 1.4;
+    transform: translateY(-23px);
 }
-app-widget-edit-section{display: none}
-app-section:hover app-widget-edit-section{display: block;}
+#h-ruler .numbers .number:first-child{visibility: hidden}
+
+app-widget-edit-section {
+    display: none
+}
+
+app-section:hover app-widget-edit-section {
+    display: block;
+}

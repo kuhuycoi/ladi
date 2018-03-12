@@ -2,4 +2,11 @@
   <app-menu id="menu"></app-menu>
   <app-toolbar id="toolbar"></app-toolbar>
 </div>
-<app-edit-content></app-edit-content>
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <app-edit-content></app-edit-content>
+  </mat-sidenav-content>
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
+    Sidenav content
+  </mat-sidenav>
+</mat-sidenav-container>

@@ -1,1 +1,6 @@
-<div class="numbers" #hNumbers></div>
+<div id="h-ruler">
+  <div class="numbers" #hNumbers></div>
+</div>
+<div id="h-snap-lines">
+  <app-hsnap-line *ngFor="let top of snapLines" [snapLines]="snapLines" [ngStyle]="{'top.px':top}" [top]="top"></app-hsnap-line>
+</div>

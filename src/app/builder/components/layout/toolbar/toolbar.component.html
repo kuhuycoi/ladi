@@ -25,7 +25,7 @@
           <br/> Tiêu đề
         </a>
         <mat-menu #headingMenu="matMenu" [overlapTrigger]="false">
-          <a href="javascript:void(0)" *ngFor="let i of [1,2,3,4,5,6]" appAddComponent="H{{i}}">Tiêu đề H{{i}}</a>
+          <a mat-menu-item href="javascript:void(0)" *ngFor="let i of [1,2,3,4,5,6]" appAddComponent="H{{i}}">Tiêu đề H{{i}}</a>
         </mat-menu>
       </li>
       <li>
