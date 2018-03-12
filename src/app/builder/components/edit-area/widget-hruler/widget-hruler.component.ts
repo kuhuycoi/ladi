@@ -13,7 +13,7 @@ export class WidgetHRulerComponent implements AfterViewChecked {
   ngAfterViewChecked() {
     const hHeight = this.elementRef.nativeElement.offsetHeight;
     this.hNumbers.nativeElement.innerHTML = '';
-    for (let i = 0; i < hHeight; i += 100) {
+    for (let i = 0; i <= hHeight - 100; i += 100) {
       this.hNumbers.nativeElement.innerHTML += '<div class="number">' + i + '</div>';
     }
   }

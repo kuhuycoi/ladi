@@ -18,7 +18,6 @@ export interface WidgetComponent {
     'font-weight'?: any,
     'color'?: string,
     'text-align'?: string,
-    'justify-content'?: 'center',
     'counter-reset'?: string,
     'border-width'?: string,
     'border-style'?: string,

@@ -3,5 +3,4 @@
     <app-element *ngFor="let component of section.childrens" class="ui-snap" [parent]="this" [component]="component" [attr.data-id]="component.id" [ngStyle]="component.rect | convertRect"></app-element>
   </div>
 </div>
-
-<app-widget-edit-section #editElm [parent]="this"></app-widget-edit-section>
+<app-widget-edit-section [parent]="this"></app-widget-edit-section>

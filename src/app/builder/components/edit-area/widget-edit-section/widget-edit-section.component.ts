@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ElementRef } from '@angular/core';
-import { WidgetSection } from '../../../interfaces/widget-section';
+import { SectionActionService } from '../../../services/section-action.service';
+import { WidgetSectionComponent } from '../widget-section/widget-section.component';
 declare var $: any;
 
 @Component({
@@ -8,10 +9,19 @@ declare var $: any;
   styleUrls: ['./widget-edit-section.component.scss']
 })
 export class WidgetEditSectionComponent implements OnInit {
-  @Input('parent') parent: WidgetSection;
-  constructor(public elementRef: ElementRef) { }
+  @Input('parent') parent: WidgetSectionComponent;
+  constructor(public elementRef: ElementRef, private sectionActionService: SectionActionService) { }
 
   ngOnInit() {
+  }
+  cloneSection(event: Event) {
+    this.sectionActionService.cloneSectionByid(this.parent.section.id);
+  }
+  moveSection(event: Event, direction: number) {
+    this.sectionActionService.moveSectionByid(this.parent.section, direction);
+  }
+  deleteSection(event: Event) {
+    this.sectionActionService.deleteSection(this.parent.section);
   }
 
 }

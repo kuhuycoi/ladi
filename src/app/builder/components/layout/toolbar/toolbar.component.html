@@ -2,7 +2,7 @@
   <div class="d-flex align-items-center">
     <ul class="d-flex list-unstyled flex-row mr-auto">
       <li>
-        <a href="javascript:void(0)" appOpenModal="templateModal">
+        <a href="javascript:void(0)" appOpenModalTemplate>
           <mat-icon>aspect_ratio</mat-icon>
           <br/> Đoạn mẫu
         </a>
@@ -118,7 +118,7 @@
           <a mat-menu-item [matMenuTriggerFor]="popupMenu">POPUP</a>
         </mat-menu>
         <mat-menu #sectionMenu="matMenu" [overlapTrigger]="false">
-          <a mat-menu-item *ngFor="let i of [1,2,3,4,5,6]" href="#SECION1{{i}}">#SECION1{{i}}</a>
+          <a mat-menu-item *ngFor="let section of sectionActionService.sections" href="#{{section.id}}">#{{section.id}}</a>
         </mat-menu>
         <mat-menu #popupMenu="matMenu" [overlapTrigger]="false">
           <a mat-menu-item *ngFor="let i of [1,2,3,4,5,6]" href="#SECION1{{i}}">#POPUP{{i}}</a>

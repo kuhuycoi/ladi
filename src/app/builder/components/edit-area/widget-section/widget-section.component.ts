@@ -14,7 +14,6 @@ declare var $: any;
 })
 export class WidgetSectionComponent implements OnInit {
   @Input('section') section: WidgetSection;
-  @ViewChild('editElm') editElm: WidgetEditSectionComponent;
   private componentUI: ComponentUI;
   constructor(private sectionActionService: SectionActionService, public elementRef: ElementRef) {
   }

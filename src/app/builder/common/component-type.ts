@@ -71,7 +71,7 @@ export const IMG_COMPONENT: WidgetComponent = {
     'border-radius': '5px',
     'font-size': '14px',
     'color': 'rgb(255, 255, 255)',
-    'justify-content': 'center'
+    'text-align': 'center'
   }
 };
 export const BUTTON_COMPONENT: WidgetComponent = {
@@ -95,7 +95,7 @@ export const BUTTON_COMPONENT: WidgetComponent = {
     'line-height': '18px',
     'padding': '11px',
     'color': 'rgb(255, 255, 255)',
-    'justify-content': 'center'
+    'text-align': 'center'
   }
 };
 export const H2_COMPONENT: WidgetComponent = {
@@ -197,7 +197,7 @@ export const UL_COMPONENT: WidgetComponent = {
   'rect': {
     'dimension': {
       'width': 200,
-      'height': 140
+      'height': 160
     },
     'offset': {
       'top': 0,

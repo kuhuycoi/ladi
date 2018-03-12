@@ -14,7 +14,7 @@ export class WidgetVRulerComponent implements AfterViewChecked {
   ngAfterViewChecked() {
     const vWidth = this.elementRef.nativeElement.offsetWidth;
     this.vNumbers.nativeElement.innerHTML = '';
-    for (let i = 0; i < vWidth; i += 100) {
+    for (let i = 0; i < vWidth - 100; i += 100) {
       this.vNumbers.nativeElement.innerHTML += '<div class="number">' + i + '</div>';
     }
   }

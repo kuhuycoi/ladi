@@ -148,7 +148,7 @@ ul[app-type="ul"][data-order="disc"]>li::before {
     z-index: 9999;
 }
 
-app-section .ui-resizable-handle.ui-resizable-s{
+app-section>.ui-resizable-handle.ui-resizable-s{
   height: 29px;
   cursor: s-resize;
   position: absolute;

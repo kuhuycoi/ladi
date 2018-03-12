@@ -6,10 +6,10 @@ import { HttpModule } from '@angular/http';
 
 // Material Module
 import {
-  MatMenuModule, MatButtonModule, MatIconModule, MatTooltipModule, MatSlideToggleModule, MatDialogModule, MatInputModule
+  MatMenuModule, MatButtonModule, MatIconModule, MatTooltipModule, MatSlideToggleModule, MatDialogModule, MatInputModule, MatTabsModule
 } from '@angular/material';
 const MATERIAL_MODULE = [
-  MatMenuModule, MatButtonModule, MatIconModule, MatTooltipModule, MatSlideToggleModule, MatDialogModule, MatInputModule
+  MatMenuModule, MatButtonModule, MatIconModule, MatTooltipModule, MatSlideToggleModule, MatDialogModule, MatInputModule, MatTabsModule
 ];
 // Material Module
 
@@ -37,17 +37,20 @@ import { WidgetHRulerComponent } from './builder/components/edit-area/widget-hru
 import { WidgetVRulerComponent } from './builder/components/edit-area/widget-vruler/widget-vruler.component';
 import { EditContentComponent } from './builder/components/edit-area/edit-content/edit-content.component';
 import { WidgetEditElementComponent } from './builder/components/edit-area/widget-edit-element/widget-edit-element.component';
+import { WidgetEditSectionComponent } from './builder/components/edit-area/widget-edit-section/widget-edit-section.component';
+import { ModalSectionTemplateComponent } from './builder/components/edit-area/modal-section-template/modal-section-template.component';
 const EDIT_AREA = [
   ButtonComponent, H1Component, H2Component, H3Component, ParagraphComponent, ListULComponent, ModalIconComponent,
   WidgetEditElementComponent, ModalImageComponent, WidgetElementComponent, WidgetSectionComponent, WidgetHRulerComponent,
-  WidgetVRulerComponent, EditContentComponent
+  WidgetVRulerComponent, EditContentComponent, WidgetEditSectionComponent, ModalSectionTemplateComponent
 ];
 // EDIT AREA
 
 // DIRECTIVES
 import { AddComponentDirective } from './builder/directives/add-component.directive';
 import { OpenModalImageDirective } from './builder/directives/open-modal-image.directive';
-const DIRECTIVES = [AddComponentDirective, OpenModalImageDirective];
+import { OpenModalTemplateDirective } from './builder/directives/open-modal-template.directive';
+const DIRECTIVES = [AddComponentDirective, OpenModalImageDirective, OpenModalTemplateDirective];
 // DIRECTIVES
 
 // PIPES
@@ -60,18 +63,17 @@ const PIPES = [ConvertRectPipe, JoinStylePipe];
 import { UploadFileService } from './builder/services/upload-file.service';
 import { ComponentActionService } from './builder/services/component-action.service';
 import { SectionActionService } from './builder/services/section-action.service';
-import { WidgetEditSectionComponent } from './builder/components/edit-area/widget-edit-section/widget-edit-section.component';
 const PROVIDERS = [SectionActionService, ComponentActionService, UploadFileService];
 // PROVIDERS
 
 @NgModule({
   declarations: [
-    LAYOUT_COMPONENT, EDIT_AREA, DIRECTIVES, PIPES, WidgetEditSectionComponent
+    LAYOUT_COMPONENT, EDIT_AREA, DIRECTIVES, PIPES
   ],
   imports: [
     BrowserModule, MATERIAL_MODULE, BrowserAnimationsModule, HttpModule
   ],
-  entryComponents: [ModalImageComponent],
+  entryComponents: [ModalImageComponent, ModalSectionTemplateComponent],
   providers: PROVIDERS,
   bootstrap: [AppComponent]
 })

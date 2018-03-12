@@ -69,9 +69,6 @@ export class ComponentActionService {
       }
     }
   }
-  // moveComponent(){
-
-  // }
   getComponentById(id: String): WidgetComponent {
     for (const key of Object.keys(this.sectionActionService.sections)) {
       if (this.sectionActionService.sections[key] != null) {
@@ -91,9 +88,6 @@ export class ComponentActionService {
         for (const key1 of Object.keys(section.childrens)) {
           const component: WidgetComponent = section.childrens[key1];
           if (component.id === id) {
-            // var rect: Rect = component.rect;
-            // rect = null;
-            // NOTE: Interface có giá trị ko tường minh, nếu thay đổi giá trị đó, sẽ ko có sự kiện change
             dimension.width = dimension.width || component.rect.dimension.width;
             dimension.height = dimension.height || component.rect.dimension.height;
             const rect: Rect = {
@@ -101,9 +95,6 @@ export class ComponentActionService {
               'dimension': dimension
             };
             component.rect = rect;
-            // console.log('before:' + ' - top: ' + component.rect.offset.top + ' - left: ' + component.rect.offset.left);
-            // component.rect.offset = offset;
-            // console.log('after:' + ' - top: ' + component.rect.offset.top + ' - left: ' + component.rect.offset.left);
             return;
           }
         }
@@ -117,18 +108,11 @@ export class ComponentActionService {
         for (const key1 of Object.keys(section.childrens)) {
           const component: WidgetComponent = section.childrens[key1];
           if (component.id === id) {
-            // var rect: Rect = component.rect;
-            // rect = null;
-            // NOTE: Interface có giá trị ko tường minh, nếu thay đổi giá trị đó, sẽ ko có sự kiện change
             const rect: Rect = {
               'offset': offset,
               'dimension': component.rect.dimension
             };
             component.rect = rect;
-            // console.log('before:' + ' - top: ' + component.rect.offset.top + ' - left: ' + component.rect.offset.left);
-            // component.rect.offset = offset;
-            // console.log('after:' + ' - top: ' + component.rect.offset.top + ' - left: ' + component.rect.offset.left);
-            return;
           }
         }
       }
@@ -183,7 +167,7 @@ export class ComponentActionService {
             const newComponent = Object.assign({}, component);
             newComponent.id = newComponent.type + new Date().getTime();
             newComponent.rect.offset.top = component.rect.offset.top + component.rect.dimension.height + 10;
-            section.childrens.push(newComponent);
+            section.childrens.splice(parseInt(key, 10) + 1, 0, newComponent);
             return;
           }
         }

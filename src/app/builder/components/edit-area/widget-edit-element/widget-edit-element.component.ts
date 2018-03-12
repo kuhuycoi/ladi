@@ -17,9 +17,7 @@ export class WidgetEditElementComponent implements OnInit {
   deleteComponent(event: Event) {
     event.preventDefault();
     event.stopPropagation();
-    const parentRef = this.parent.elementRef;
-    const parentElm: HTMLElement = parentRef.nativeElement;
-    const selectedId: string = parentElm.dataset.id;
+    const selectedId: string = this.parent.component.id;
     this.componentActionService.deleteComponentById(selectedId);
     this.componentActionService.selectedRef = null;
     document.querySelector('.tooltip').remove();
@@ -28,9 +26,7 @@ export class WidgetEditElementComponent implements OnInit {
   cloneComponent(event: Event) {
     event.preventDefault();
     event.stopPropagation();
-    const parentRef = this.parent.elementRef;
-    const parentElm: HTMLElement = parentRef.nativeElement;
-    const selectedId: string = parentElm.dataset.id;
+    const selectedId: string = this.parent.component.id;
     this.componentActionService.cloneComponentByid(selectedId);
   }
   enableEdit(event: Event) {
@@ -54,27 +50,6 @@ export class WidgetEditElementComponent implements OnInit {
       selection.removeAllRanges();
       selection.addRange(range);
     }
-    // contentElm.click();
-    // console.log(contentElm);
-    // const selectedRef: ElementRef = this.componentActionService.selectedRef;
-    // const parentRef: ElementRef = this.parent.elementRef;
-    // const parentElm: HTMLElement = parentRef.nativeElement;
-    // this.parent.elementRef.nativeElement.style.minHeight = parentElm.offsetHeight + 'px';
-    // parentElm.style.removeProperty('height');
-    // this.parent.isAttachEdit = true;
-    // this.componentActionService.selectedRef.nativeElement.classList.add('attach-edit');
-    // selectedElm.querySelector('.widget-content').setAttribute('contenteditable', 'true');
-    // const conentElm = this.parent.content.nativeElement;
-    // if (conentElm) {
-    //   const textNode = conentElm.childNodes[0];
-    //   const startIndex = 0;
-    //   const endIndex = conentElm.innerHTML.length;
-    //   const range = document.createRange();
-    //   range.selectNodeContents(conentElm);
-    //   const selection = window.getSelection();
-    //   selection.removeAllRanges();
-    //   selection.addRange(range);
-    // }
   }
 
 }

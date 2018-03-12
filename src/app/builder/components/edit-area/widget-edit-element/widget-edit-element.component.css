@@ -1,11 +1,9 @@
-.edit-element ul,
 .edit-element ul {
     padding: 0;
     margin: 0;
     min-width: 175px
 }
 
-.edit-element ul li,
 .edit-element ul li {
     list-style: none;
     float: none;
@@ -18,9 +16,7 @@
 }
 
 .edit-element ul li .svg-icons,
-.edit-element ul li i,
-.edit-element ul li .svg-icons,
-.edit-element ul li i {
+.edit-element ul li i{
     color: #061528;
     fill: #061528;
     line-height: 30px;
@@ -28,21 +24,18 @@
     display: inline-block
 }
 
-.edit-element ul li i.ion-pin,
-.edit-element ul li i.ion-pin {
+.edit-element ul li i.ion-pin{
     font-size: 20px;
     position: relative;
     top: 7px
 }
 
-.edit-element ul li i.ion-ios-trash-outline,
-.edit-element ul li i.ion-ios-trash-outline {
+.edit-element ul li i.ion-ios-trash-outline{
     position: relative;
     top: 3px
 }
 
-.edit-element ul li a,
-.edit-element ul li a {
+.edit-element ul li a{
     display: block;
     color: rgba(6, 21, 40, .6);
     background: #fafafa;
@@ -54,19 +47,16 @@
     line-height: 30px
 }
 
-.edit-element ul li a svg,
-.edit-element ul li a svg {
+.edit-element ul li a svg{
     position: relative;
     top: 5px
 }
 
-.edit-element ul li a:hover,
-.edit-element ul li a:hover {
+.edit-element ul li a:hover{
     text-decoration: none
 }
 
-.edit-element ul li.contro-text a,
-.edit-element ul li.contro-text a {
+.edit-element ul li.contro-text a{
     width: auto;
     padding: 0 10px;
     border-radius: 100px

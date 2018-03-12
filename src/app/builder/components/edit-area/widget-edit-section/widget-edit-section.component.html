@@ -1,22 +1,19 @@
 <div class="edit-section">
   <ul>
-    <li title="Nhân bản" ng-click="duplicate()">
+    <li matTooltip="Nhân bản" matTooltipPosition="before" (click)="cloneSection($event)">
       <i class="material-icons">filter_none</i>
     </li>
-    <li lp-show="setElement" ng-click="convertBackgroundToElement()" title="Thu nhỏ" style="display: none;">
-      <i class="material-icons">fullscreen_exit</i>
-    </li>
-    <li ng-click="moveup()" title="Lên trên">
+    <li matTooltip="Lên trên" matTooltipPosition="before" (click)="moveSection($event,-1)">
       <i class="material-icons">expand_less</i>
     </li>
-    <li ng-click="movedown()" title="Xuống dưới">
+    <li matTooltip="Xuống dưới" matTooltipPosition="before" (click)="moveSection($event,1)">
       <i class="material-icons">expand_more</i>
     </li>
-    <li ng-click="deleteElement()" title="Xóa">
+    <li matTooltip="Xóa" matTooltipPosition="before" (click)="deleteSection($event)">
       <i class="ion-ios-trash-outline"></i>
     </li>
   </ul>
 </div>
-<button class="add-section" mat-raised-button color="primary">
-  <span><i class="ion-plus-round"></i> Thêm Đoạn Mẫu</span>
+<button class="add-section" mat-raised-button color="primary" appOpenModalTemplate [sectionId]="parent.section.id">
+  <i class="ion-plus-round"></i> Thêm Đoạn Mẫu
 </button>
